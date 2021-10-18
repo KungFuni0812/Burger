@@ -10,15 +10,17 @@
         <div class = "col-4 AvalBurgerList center-align">
             <br>
             <br>
-            <h4>Available Burgers</h4>
+            <h4 class="text-center">Available Burgers</h4>
             <hr>
-            <ul>
+            <table class="table table-borderless">
+                <tbody>
                 {{#each burgers}}
                     {{#unless devoured}}
                         {{> burgers_list/burger_block notEaten=true}}
                     {{/unless}}
                 {{/each}}
-            </ul>
+                </tbody>
+            </table>
         </div>
         <div class = "col-4">
             <br>
@@ -38,15 +40,15 @@
         <div class = "col-4 DevouredBurgerList center-align">
             <br>
             <br>
-            <h4>Burgers Eaten</h4>
+            <h4 class="text-center">Burgers Eaten</h4>
             <hr>
-            <ul>
+            <table class="table table-borderless">
                 {{#each burgers}}
                     {{#if devoured}}
                         {{> burgers_list/burger_block notEaten=false}}
                     {{/if}}
                 {{/each}}
-            </ul>
+            </table>
         </div>
     </div>
 </div>
