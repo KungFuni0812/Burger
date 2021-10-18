@@ -12,7 +12,10 @@ router.get("/", function(req, res){
         var burgerObject = {
             burgers: data
         };
+    console.log(`~~~~~~~~~~`)
+    console.log(`burgerObject:`)
     console.log(burgerObject);
+    console.log(`~~~~~~~~~~`)
     res.render("index", burgerObject);
     });
 });
@@ -31,7 +34,7 @@ router.put("/api/burgers/:id", function(req, res){
     var burgerID = req.params.id;
     burger.updateOne(
         "devoured", 1, "id", burgerID, function(result){
-            res.jason({id: result});
+            res.json({id: result.id});
         }
     )
 });

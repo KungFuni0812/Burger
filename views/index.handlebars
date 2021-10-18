@@ -1,29 +1,58 @@
-<div class = "container-lg">
-    <div class="jumbotron jumbotron-fluid">
+<div class = "container-lg" id="ctainer">
+    <div class="jumbotron jumbotron-fluid text-center" id="JBHeader">
             <div class="container">
-                <h1 class="display-4">Eat Da Burger!</h1>
+                <h1 class="display-4"><b>Eat Da Burger!</b></h1>
                 <hr>
             </div>
     </div>
 
-    <div class = "row">
-        <div class = "col-4 AvalBurgerList">
+    <div class = "row" id="cbody">
+        <div class = "col-4 AvalBurgerList center-align">
+            <br>
+            <br>
+            <h4>Available Burgers</h4>
+            <hr>
             <ul>
+                {{#each burgers}}
+                    {{#unless devoured}}
+                        <li>
+                            {{burger_name}}
+                            <button class="change-state" data-id="{{id}}">
+                                Devour It!
+                            </button>
+                        </li>
+                    {{/unless}}
+                {{/each}}
             </ul>
         </div>
         <div class = "col-4">
+            <br>
+            <br>
             <img src="/assets/img/burger.PNG" class="img-fluid burgerimg" alt="burger">
+            <br>
+            <br>
             <form class = "createBurger">
                 <div class="form-group">
                     <label for="exampleFormControlTextarea1">Enter a burger you want to eat and Click the Submit button to add!</label>
-                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                    <textarea class="form-control" id="newBurger" rows="3"></textarea>
                     <br>
-                    <button type="button" class="btn btn-warning btn-lg btn-block">Submit</button>
+                    <button type="submit" class="btn btn-dark btn-lg btn-block">Submit</button>
                 </div>
             </form>
         </div>
-        <div class = "col-4 DevouredBurgerList">
+        <div class = "col-4 DevouredBurgerList center-align">
+            <br>
+            <br>
+            <h4>Burgers Eaten</h4>
+            <hr>
             <ul>
+                {{#each burgers}}
+                    {{#if devoured}}
+                        <li>
+                            {{burger_name}}
+                        </li>
+                    {{/if}}
+                {{/each}}
             </ul>
         </div>
     </div>

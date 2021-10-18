@@ -6,9 +6,8 @@ var orm = {
     selectAll: function(tableInput, cb) {
         var queryString = "SELECT * FROM ??";
         connection.query(queryString, [tableInput], function(err, result) {
-        if (err) throw err;
-        console.log(result);
-        cb(result);
+            if (err) throw err;
+            cb(result);
         });
     },
 
@@ -17,9 +16,8 @@ var orm = {
         var queryString = "INSERT INTO ?? (??) VALUES (?)";
         console.log(queryString);
         connection.query(queryString, [table, colName, valueName], function(err, result) {
-        if (err) throw err;
-        console.log(result);
-        cb(result);
+            if (err) throw err;
+            cb(result);
         });
     },
     //updating the burger from 0 to 1 once the devour button is press
@@ -30,9 +28,8 @@ var orm = {
             queryString,
             [table, colName1, valueName, colName2, valueName2,],
             function(err, result) {
-            if (err) throw err;
-            console.log(result);
-            cb(result);
+                if (err) throw err;
+                cb(result);
             }
         );
         }
